@@ -223,6 +223,12 @@ function onRightChoice()
     $("#msg-area").show();
 }
 
+function startPlaying()
+{
+    let player = document.getElementById('player');
+    player.playButton.click();
+}
+
 function prepareButtons()
 {
     let choices = game.quizChoices;
@@ -238,12 +244,8 @@ function prepareButtons()
         btn.on('click', handler);
     }
     $('#buttons').show();
-}
 
-function startPlaying()
-{
-    let player = document.getElementById('player');
-    player.playButton.click();
+    startPlaying();
 }
 
 function refreshControls()
@@ -258,13 +260,11 @@ function refreshControls()
     $("#player-area").show();
 
     let file = game.currentSound().file;
-    player = document.getElementById('player');
+    let player = document.getElementById('player');
     player.src = file;
 
     // let visualizer = document.getElementById('visualizer');
     // visualizer.src = file;
-
-    startPlaying();
 }
 
 function start()

@@ -226,7 +226,9 @@ function onRightChoice()
 function startPlaying()
 {
     let player = document.getElementById('player');
-    player.playButton.click();
+    if (!player.playing) {
+        player.playButton.click();
+    }
 }
 
 function prepareButtons()
@@ -300,5 +302,5 @@ function start()
     player.addEventListener('load', prepareButtons);
     
     refreshControls();
-    setTimeout(() => { player.playButton.click(); }, 1000);
+    setTimeout(startPlaying, 200);
 }

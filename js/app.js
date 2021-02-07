@@ -181,6 +181,7 @@ function nextQuestion()
     if (game.isFinished()) {
         onGameFinished();
     } else {
+        startPlaying();
         refreshControls();
     }
 }
@@ -238,7 +239,10 @@ function prepareButtons()
         btn.on('click', handler);
     }
     $('#buttons').show();
+}
 
+function startPlaying()
+{
     let player = document.getElementById('player');
     player.playButton.click();
 }

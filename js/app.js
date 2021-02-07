@@ -265,6 +265,7 @@ function refreshControls()
 
     // let visualizer = document.getElementById('visualizer');
     // visualizer.src = file;
+    startPlaying();
 }
 
 function start()

@@ -181,7 +181,6 @@ function nextQuestion()
     if (game.isFinished()) {
         onGameFinished();
     } else {
-        startPlaying();
         refreshControls();
     }
 }
@@ -264,6 +263,8 @@ function refreshControls()
 
     // let visualizer = document.getElementById('visualizer');
     // visualizer.src = file;
+
+    startPlaying();
 }
 
 function start()
@@ -296,6 +297,7 @@ function start()
 
     let player = document.getElementById('player');
     player.addEventListener('load', prepareButtons);
-
+    
     refreshControls();
+    player.playButton.click();
 }

@@ -300,5 +300,5 @@ function start()
     player.addEventListener('load', prepareButtons);
     
     refreshControls();
-    player.playButton.click();
+    setTimeout(() => { player.playButton.click(); }, 1000);
 }

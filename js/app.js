@@ -2,87 +2,101 @@ let sounds = [
     {
         "name": "Italy",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Italy.mid"
+        "file": "http://www.nationalanthems.info/it.mp3"
     },
     {
         "name": "United States",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_United_States.mid"
+        "file": "http://www.nationalanthems.info/us.mp3"
     },
     {
         "name": "Germany",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Germany.mid"
+        "file": "http://www.nationalanthems.info/de.mp3"
     },
     {
         "name": "France",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_France.mid"
+        "file": "http://www.nationalanthems.info/fr.mp3"
     },
     {
         "name": "Israel",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Israel.mid"
+        "file": "http://www.nationalanthems.info/il.mp3"
     },
     {
         "name": "Netherlands",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Netherlands.mid"
+        "file": "http://www.nationalanthems.info/nl.mp3"
     },
     {
         "name": "Poland",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Poland.mid"
+        "file": "http://www.nationalanthems.info/pl.mp3"
     },
     {
         "name": "India",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_India.mid"
+        "file": "http://www.nationalanthems.info/in.mp3"
     },
     {
         "name": "Canada",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Canada2.mid"
+        "file": "http://www.nationalanthems.info/ca.mp3"
     },
     {
         "name": "United Kingdom",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_United_Kingdom.mid"
+        "file": "http://www.nationalanthems.info/gb.mp3"
     },
     {
         "name": "Russia",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/national_anthem_russia.mid"
+        "file": "http://www.nationalanthems.info/ru.mp3"
     },
     {
         "name": "Mexico",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Mexico.mid"
+        "file": "http://www.nationalanthems.info/mx.mp3"
     },
     {
         "name": "Spain",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Spain.mid"
+        "file": "http://www.nationalanthems.info/es.mp3"
     },
     {
         "name": "Taiwan",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Taiwan.mid"
+        "file": "http://www.nationalanthems.info/tw.mp3"
     },
     {
         "name": "China",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/chinami_-_China.mid"
+        "file": "http://www.nationalanthems.info/cn.mp3"
     },
     {
         "name": "Australia",
         "category": "National Anthem",
-        "file": "/sound-quiz/midi/National_Anthems_-_Australia.mid"
+        "file": "http://www.nationalanthems.info/au.mp3"
+    },
+    {
+        "name": "Austria",
+        "category": "National Anthem",
+        "file": "http://www.nationalanthems.info/at.mp3"
+    },
+    {
+        "name": "European Union",
+        "category": "National Anthem",
+        "file": "http://www.nationalanthems.info/eu.mp3"
+    },
+    {
+        "name": "Brazil",
+        "category": "National Anthem",
+        "file": "http://www.nationalanthems.info/br.mp3"
     },
 ]
 
-function getRandomSubarray(arr, size)
-{
+function getRandomSubarray(arr, size) {
     let shuffled = arr.slice(0);
     let i = arr.length;
     let temp = 0;
@@ -95,11 +109,9 @@ function getRandomSubarray(arr, size)
     }
     return shuffled.slice(0, size);
 }
- 
-class GameState
-{
-    constructor()
-    {
+
+class GameState {
+    constructor() {
         this.sounds = new Array();
         this.index = 0;
         this.numRight = 0;
@@ -108,15 +120,12 @@ class GameState
 }
 
 
-class Game
-{
-    constructor()
-    {
+class Game {
+    constructor() {
         this.gameState = new GameState();
     }
 
-    reset()
-    {
+    reset() {
         this.gameState.sounds = getRandomSubarray(this.gameState.sounds, this.gameState.sounds.length);
         this.gameState.index = 0;
         this.gameState.numRight = 0;
@@ -124,24 +133,19 @@ class Game
         this.chooseItems();
     }
 
-    isFinished()
-    {
+    isFinished() {
         return this.gameState.index == this.gameState.sounds.length;
     }
 
-    currentSound()
-    {
+    currentSound() {
         return this.gameState.sounds[this.gameState.index];
     }
 
-    chooseItems()
-    {
+    chooseItems() {
         // Filter out current index
         let choices = new Array();
-        for (let i = 0; i < this.gameState.sounds.length; ++i)
-        {
-            if (i != this.gameState.index)
-            {
+        for (let i = 0; i < this.gameState.sounds.length; ++i) {
+            if (i != this.gameState.index) {
                 choices.push(this.gameState.sounds[i]);
             }
         }
@@ -156,22 +160,19 @@ class Game
         this.quizChoices = getRandomSubarray(choices, choices.length);
     }
 
-    goNext()
-    {
+    goNext() {
         this.gameState.index += 1;
         this.chooseItems();
     }
 }
 
 
-function onGameFinished()
-{
+function onGameFinished() {
     $("#game-over").show();
     window.localStorage.removeItem("gameState");
 }
 
-function nextQuestion()
-{
+function nextQuestion() {
     game.goNext();
     $("#msgWrong").hide();
     $("#msgRight").hide();
@@ -185,8 +186,7 @@ function nextQuestion()
     }
 }
 
-function updateScores()
-{
+function updateScores() {
     $("#questionNum").html(game.gameState.index + 1);
     $("#score").html(game.gameState.numRight);
     $("#total").html(game.gameState.sounds.length);
@@ -195,8 +195,7 @@ function updateScores()
     window.localStorage.setItem("gameState", gameStateJson);
 }
 
-function onWrongChoice()
-{
+function onWrongChoice() {
     game.gameState.numWrong += 1;
     updateScores();
 
@@ -209,12 +208,11 @@ function onWrongChoice()
     $("#msg-area").show();
 }
 
-function onRightChoice()
-{
+function onRightChoice() {
     game.gameState.numRight += 1;
     updateScores();
 
-     let msg = $("#msgRight");
+    let msg = $("#msgRight");
     msg.html(`<h1>Correct!<br/>It was <strong>${game.currentSound().name}</strong></h1>`);
     msg.show();
 
@@ -223,16 +221,16 @@ function onRightChoice()
     $("#msg-area").show();
 }
 
-function startPlaying()
-{
-    let player = document.getElementById('player');
-    if (!player.playing) {
-        player.playButton.click();
+let player = null;
+
+function startPlaying() {
+    if (player != null) {
+        player.stop();
+        player.play();
     }
 }
 
-function prepareButtons()
-{
+function prepareButtons() {
     let choices = game.quizChoices;
     for (let i = 0; i < choices.length; ++i) {
         let btn = $("#btn" + i.toString());
@@ -250,8 +248,7 @@ function prepareButtons()
     startPlaying();
 }
 
-function refreshControls()
-{
+function refreshControls() {
     updateScores();
 
     $("#game-over").hide();
@@ -262,45 +259,118 @@ function refreshControls()
     $("#player-area").show();
 
     let file = game.currentSound().file;
-    let player = document.getElementById('player');
-    player.src = file;
 
-    // let visualizer = document.getElementById('visualizer');
-    // visualizer.src = file;
+    let btnStop = $("#btnStop");
+    let btnPlay = $("#btnPlay");
+
+    if (player != null) {
+        player.stop();
+        player = null;
+    }
+
+    player = new Howl({
+        src: [file],
+        html5: true, // Force to HTML5 so that the audio can stream in (best for large files).
+        autoplay: false,
+        onplay: function () {
+            btnPlay.hide();
+            btnStop.show();
+        },
+        onload: function () {
+            btnPlay.show();
+            btnStop.hide();
+            prepareButtons();
+        },
+        onstop: function () {
+            btnPlay.show();
+            btnStop.hide();
+        },
+        onend: function () {
+            btnPlay.show();
+            btnStop.hide();
+        }
+    });
+
     startPlaying();
 }
 
-function start()
-{
-    $("#btnRestart").click(function() {
+function deepEqual(object1, object2) {
+    const keys1 = Object.keys(object1);
+    const keys2 = Object.keys(object2);
+
+    if (keys1.length !== keys2.length) {
+        return false;
+    }
+
+    for (const key of keys1) {
+        const val1 = object1[key];
+        const val2 = object2[key];
+        const areObjects = isObject(val1) && isObject(val2);
+        if (
+            areObjects && !deepEqual(val1, val2) ||
+            !areObjects && val1 !== val2
+        ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function isObject(object) {
+    return object != null && typeof object === 'object';
+}
+
+function loadGameState() {
+    let gameStateJson = window.localStorage.getItem("gameState");
+    if (gameStateJson != null) {
+        let state = JSON.parse(gameStateJson);
+
+        if (state.sounds.length != sounds.length) {
+            return null;
+        }
+
+        for (let i = 0; i < state.sounds; ++i) {
+            if (!deepEqual(state.sounds[i], sounds[i])) {
+                return null;
+            }
+        }
+        return state;
+    }
+    return null;
+}
+
+function start() {
+    $("#btnRestart").click(function () {
         window.localStorage.removeItem("gameState");
         window.location.reload();
     });
 
     game = new Game();
+    const gameState = loadGameState();
 
-    let gameStateJson = window.localStorage.getItem("gameState");
-    if (gameStateJson == null)
-    {
+    if (gameState == null) {
         game.gameState.sounds = sounds;
         game.reset();
 
         gameStateJson = JSON.stringify(game.gameState);
         window.localStorage.setItem("gameState", gameStateJson);
-    }
-    else
-    {
-        game.gameState = JSON.parse(gameStateJson);
+    } else {
+        game.gameState = gameState;
         game.chooseItems();
     }
+
 
     updateScores();
     $("#msg-area").hide();
     $("#btnNext").click(nextQuestion);
+    $("#btnStop").click(function () {
+        if (player != null) { player.stop(); }
+    });
 
-    let player = document.getElementById('player');
-    player.addEventListener('load', prepareButtons);
-    
+    $("#btnPlay").click(function () {
+        if (player != null) { player.play(); }
+    });
+
     refreshControls();
-    setTimeout(startPlaying, 200);
 }

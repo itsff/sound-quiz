@@ -2,97 +2,97 @@ let sounds = [
     {
         "name": "Italy",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/it.mp3"
+        "file": "mp3/it.mp3"
     },
     {
         "name": "United States",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/us.mp3"
+        "file": "mp3/us.mp3"
     },
     {
         "name": "Germany",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/de.mp3"
+        "file": "mp3/de.mp3"
     },
     {
         "name": "France",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/fr.mp3"
+        "file": "mp3/fr.mp3"
     },
     {
         "name": "Israel",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/il.mp3"
+        "file": "mp3/il.mp3"
     },
     {
         "name": "Netherlands",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/nl.mp3"
+        "file": "mp3/nl.mp3"
     },
     {
         "name": "Poland",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/pl.mp3"
+        "file": "mp3/pl.mp3"
     },
     {
         "name": "India",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/in.mp3"
+        "file": "mp3/in.mp3"
     },
     {
         "name": "Canada",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/ca.mp3"
+        "file": "mp3/ca.mp3"
     },
     {
         "name": "United Kingdom",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/gb.mp3"
+        "file": "mp3/gb.mp3"
     },
     {
         "name": "Russia",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/ru.mp3"
+        "file": "mp3/ru.mp3"
     },
     {
         "name": "Mexico",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/mx.mp3"
+        "file": "mp3/mx.mp3"
     },
     {
         "name": "Spain",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/es.mp3"
+        "file": "mp3/es.mp3"
     },
     {
         "name": "Taiwan",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/tw.mp3"
+        "file": "mp3/tw.mp3"
     },
     {
         "name": "China",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/cn.mp3"
+        "file": "mp3/cn.mp3"
     },
     {
         "name": "Australia",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/au.mp3"
+        "file": "mp3/au.mp3"
     },
     {
         "name": "Austria",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/at.mp3"
+        "file": "mp3/at.mp3"
     },
     {
         "name": "European Union",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/eu.mp3"
+        "file": "mp3/eu.mp3"
     },
     {
         "name": "Brazil",
         "category": "National Anthem",
-        "file": "http://www.nationalanthems.info/br.mp3"
+        "file": "mp3/br.mp3"
     },
 ]
 
